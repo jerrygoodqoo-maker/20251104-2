@@ -1,0 +1,119 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.menu-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-trigger {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-trigger:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.side-menu {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.menu-container:hover .side-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 10px 0;
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.side-menu ul li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+/* 子選單樣式 */
+.side-menu ul li.has-submenu {
+  position: relative;
+}
+
+.side-menu ul li .sub-menu {
+  position: absolute;
+  top: calc(100% + 6px); /* 放在父項下方，稍稍往下 */
+  left: 20px; /* 向右偏移一點 */
+  background: rgba(0, 0, 0, 0.85);
+  padding: 8px;
+  border-radius: 4px;
+  min-width: 180px;
+  display: none; /* 預設隱藏，只有在父項 hover 時顯示 */
+  opacity: 0;
+  transform: translateY(-6px); /* 從上方微移入 */
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 1010;
+}
+
+.side-menu ul li.has-submenu:hover > .sub-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0) translateX(6px); /* 顯示時微微向右 */
+}
+
+.side-menu ul li .sub-menu li {
+  margin: 0;
+}
+
+.side-menu ul li .sub-menu li a {
+  padding: 6px 12px;
+  font-size: 15px;
+}
+
+.student-info {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+}
+
+canvas {
+  display: block;
+}
